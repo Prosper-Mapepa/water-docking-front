@@ -151,6 +151,62 @@ All API calls are centralized in `src/lib/api.ts` for easy maintenance and updat
 - Custom components defined in `globals.css`
 - Maintain consistent spacing and colors
 
+## Deployment to Netlify
+
+### Prerequisites
+1. A GitHub/GitLab/Bitbucket repository with your code
+2. A Netlify account (sign up at https://app.netlify.com)
+3. Your backend API deployed and accessible via a live URL
+
+### Step 1: Install Netlify Next.js Plugin
+
+The project includes the Netlify Next.js plugin in the configuration. Make sure it's installed:
+
+```bash
+npm install --save-dev @netlify/plugin-nextjs
+```
+
+### Step 2: Deploy to Netlify
+
+1. **Connect your repository to Netlify:**
+   - Log in to your Netlify account
+   - Click "Add new site" → "Import an existing project"
+   - Connect your Git provider and select this repository
+
+2. **Configure build settings:**
+   - Build command: `npm run build`
+   - Publish directory: `.next` (automatically handled by the plugin)
+
+3. **Set environment variables:**
+   - Go to Site settings → Environment variables
+   - Add the following variable:
+     - `NEXT_PUBLIC_API_URL` = `https://water-docking-api-production.up.railway.app`
+
+4. **Deploy:**
+   - Click "Deploy site"
+   - Netlify will build and deploy your application
+   - Once deployed, you'll receive a URL like `https://your-site.netlify.app`
+
+### Step 3: Update Backend URL
+
+**Important:** The backend URL is configured. Make sure the environment variable is set in Netlify:
+
+1. Go to Site settings → Environment variables
+2. Set `NEXT_PUBLIC_API_URL` = `https://water-docking-api-production.up.railway.app`
+3. Trigger a new deployment (Netlify will automatically redeploy on git push, or you can manually trigger a redeploy)
+
+### Environment Variables for Production
+
+Set the following in Netlify's environment variables:
+
+```env
+NEXT_PUBLIC_API_URL=https://water-docking-api-production.up.railway.app
+```
+
+### Continuous Deployment
+
+Netlify will automatically deploy your site when you push to your main branch. After setting the environment variable with your backend URL, all subsequent deployments will use the production API.
+
 ## License
 
 MIT
