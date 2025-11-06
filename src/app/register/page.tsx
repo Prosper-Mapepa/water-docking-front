@@ -252,7 +252,7 @@ export default function RegisterPage() {
               </div>
               <h3 className="text-3xl font-bold mb-4">Join Our Team</h3>
               <p className="text-xl text-primary-100 max-w-md">
-                Start managing your marina operations efficiently with our comprehensive platform.
+                Start managing your marina operations efficiently with our comprehensive platform
               </p>
             </div>
           </div>
