@@ -180,7 +180,7 @@ npm install --save-dev @netlify/plugin-nextjs
 3. **Set environment variables:**
    - Go to Site settings → Environment variables
    - Add the following variable:
-     - `NEXT_PUBLIC_API_URL` = `https://water-docking-api-production.up.railway.app`
+     - `NEXT_PUBLIC_API_URL` = `https://water-docking-api-production-5d58.up.railway.app`
 
 4. **Deploy:**
    - Click "Deploy site"
@@ -192,7 +192,7 @@ npm install --save-dev @netlify/plugin-nextjs
 **Important:** The backend URL is configured. Make sure the environment variable is set in Netlify:
 
 1. Go to Site settings → Environment variables
-2. Set `NEXT_PUBLIC_API_URL` = `https://water-docking-api-production.up.railway.app`
+2. Set `NEXT_PUBLIC_API_URL` = `https://water-docking-api-production-5d58.up.railway.app`
 3. Trigger a new deployment (Netlify will automatically redeploy on git push, or you can manually trigger a redeploy)
 
 ### Environment Variables for Production
@@ -200,7 +200,7 @@ npm install --save-dev @netlify/plugin-nextjs
 Set the following in Netlify's environment variables:
 
 ```env
-NEXT_PUBLIC_API_URL=https://water-docking-api-production.up.railway.app
+NEXT_PUBLIC_API_URL=https://water-docking-api-production-5d58.up.railway.app
 ```
 
 ### Continuous Deployment
