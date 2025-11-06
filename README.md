@@ -207,6 +207,22 @@ NEXT_PUBLIC_API_URL=https://water-docking-api-production-5d58.up.railway.app
 
 Netlify will automatically deploy your site when you push to your main branch. After setting the environment variable with your backend URL, all subsequent deployments will use the production API.
 
+### Troubleshooting CORS Errors
+
+If you see CORS errors in the browser console like:
+```
+Access to fetch at '...' has been blocked by CORS policy
+```
+
+This means your backend needs to be configured to allow requests from your Netlify domain. See `BACKEND_ENV_SETUP.md` for detailed instructions on configuring CORS in your backend.
+
+**Quick Fix:** In your backend (Railway), you need to:
+1. Configure CORS to allow `https://water-docking-app.netlify.app` as an allowed origin
+2. Ensure CORS is enabled with proper headers (`Access-Control-Allow-Origin`, `Access-Control-Allow-Credentials`, etc.)
+3. Restart your backend service after making changes
+
+See `BACKEND_ENV_SETUP.md` for complete CORS configuration instructions.
+
 ## License
 
 MIT
