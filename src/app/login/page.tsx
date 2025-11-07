@@ -167,14 +167,14 @@ export default function LoginPage() {
                 </button>
               </div>
 
-              <div className="text-center pt-2">
+              {/* <div className="text-center pt-2">
                 <p className="text-sm text-gray-600">
                   Don't have an account?{' '}
                   <Link href="/register" className="font-semibold text-primary-600 hover:text-primary-700 transition-colors">
                     Sign up
                   </Link>
                 </p>
-              </div>
+              </div> */}
             </form>
           </div>
 

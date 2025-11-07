@@ -111,25 +111,28 @@ export default function DocksPage() {
     <ProtectedRoute>
       <MainLayout>
         <div className="space-y-6">
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <h1 className="text-2xl font-bold text-gray-900">Dock Management</h1>
               <p className="mt-1 text-sm text-gray-500">
                 Manage and track all dock facilities
               </p>
             </div>
-            <button onClick={handleCreate} className="btn-primary flex items-center">
+            <button
+              onClick={handleCreate}
+              className="btn-primary inline-flex items-center justify-center w-full sm:w-auto"
+            >
               <PlusIcon className="h-5 w-5 mr-2" />
               Add Dock
             </button>
           </div>
 
           {/* Filter Tabs */}
-          <div className="card p-4">
-            <div className="flex space-x-4">
+          <div className="card p-4 sm:p-6">
+            <div className="flex flex-wrap gap-2 sm:gap-4">
               <button
                 onClick={() => setFilter('all')}
-                className={`px-4 py-2 rounded-md font-medium ${
+                className={`px-4 py-2 rounded-md font-medium text-sm ${
                   filter === 'all'
                     ? 'bg-primary-100 text-primary-700'
                     : 'text-gray-500 hover:text-gray-700'
@@ -139,7 +142,7 @@ export default function DocksPage() {
               </button>
               <button
                 onClick={() => setFilter('available')}
-                className={`px-4 py-2 rounded-md font-medium ${
+                className={`px-4 py-2 rounded-md font-medium text-sm ${
                   filter === 'available'
                     ? 'bg-primary-100 text-primary-700'
                     : 'text-gray-500 hover:text-gray-700'
@@ -149,7 +152,7 @@ export default function DocksPage() {
               </button>
               <button
                 onClick={() => setFilter('occupied')}
-                className={`px-4 py-2 rounded-md font-medium ${
+                className={`px-4 py-2 rounded-md font-medium text-sm ${
                   filter === 'occupied'
                     ? 'bg-primary-100 text-primary-700'
                     : 'text-gray-500 hover:text-gray-700'
@@ -159,7 +162,7 @@ export default function DocksPage() {
               </button>
               <button
                 onClick={() => setFilter('maintenance')}
-                className={`px-4 py-2 rounded-md font-medium ${
+                className={`px-4 py-2 rounded-md font-medium text-sm ${
                   filter === 'maintenance'
                     ? 'bg-primary-100 text-primary-700'
                     : 'text-gray-500 hover:text-gray-700'

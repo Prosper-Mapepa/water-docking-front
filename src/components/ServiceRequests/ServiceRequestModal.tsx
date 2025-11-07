@@ -89,21 +89,23 @@ export default function ServiceRequestModal({
   return (
     <Dialog open={isOpen} onClose={onClose} className="relative z-50">
       <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
-      <div className="fixed inset-0 flex items-center justify-center p-4 overflow-y-auto">
-        <Dialog.Panel className="mx-auto max-w-2xl w-full bg-white rounded-lg shadow-xl my-8">
-          <div className="flex items-center justify-between p-6 border-b">
-            <Dialog.Title className="text-lg font-medium text-gray-900">
-              {serviceRequest ? 'Edit Service Request' : 'New Service Request'}
-            </Dialog.Title>
-            <button
-              onClick={onClose}
-              className="text-gray-400 hover:text-gray-500"
-            >
-              <XMarkIcon className="h-6 w-6" />
-            </button>
-          </div>
+      <div className="fixed inset-0 overflow-y-auto">
+        <div className="flex min-h-full items-center justify-center p-4 sm:p-6">
+          <Dialog.Panel className="w-full max-w-2xl transform overflow-hidden rounded-lg bg-white shadow-xl transition-all max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-3rem)]">
+            <div className="flex items-center justify-between border-b p-4 sm:p-6">
+              <Dialog.Title className="text-lg font-medium text-gray-900">
+                {serviceRequest ? 'Edit Service Request' : 'New Service Request'}
+              </Dialog.Title>
+              <button
+                onClick={onClose}
+                className="text-gray-400 hover:text-gray-500"
+              >
+                <XMarkIcon className="h-6 w-6" />
+              </button>
+            </div>
 
-          <form onSubmit={handleSubmit(onSubmit)} className="p-6 space-y-4">
+            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col max-h-[calc(100vh-8rem)] sm:max-h-[calc(100vh-10rem)]">
+              <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4">
             <div>
               <label className="label">Customer *</label>
               <select
@@ -122,17 +124,17 @@ export default function ServiceRequestModal({
               )}
             </div>
 
-          <div>
-            <label className="label">Service Type *</label>
-            <input
-              {...register('serviceType', { required: true })}
-              className="input"
-              placeholder="e.g., Dock Repair, Fueling, Water Supply"
-            />
-            {errors.serviceType && (
-              <p className="text-red-500 text-xs mt-1">Required</p>
-            )}
-          </div>
+              <div>
+                <label className="label">Service Type *</label>
+                <input
+                  {...register('serviceType', { required: true })}
+                  className="input"
+                  placeholder="e.g., Dock Repair, Fueling, Water Supply"
+                />
+                {errors.serviceType && (
+                  <p className="text-red-500 text-xs mt-1">Required</p>
+                )}
+              </div>
 
             <div>
               <label className="label">Title *</label>
@@ -159,7 +161,7 @@ export default function ServiceRequestModal({
               )}
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
                 <label className="label">Priority</label>
                 <select {...register('priority')} className="input">
@@ -180,7 +182,7 @@ export default function ServiceRequestModal({
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
                 <label className="label">Requested Date</label>
                 <input
@@ -209,21 +211,23 @@ export default function ServiceRequestModal({
                 placeholder="Additional notes or special instructions"
               />
             </div>
+              </div>
 
-            <div className="flex justify-end space-x-3 pt-4 border-t">
-              <button
-                type="button"
-                onClick={onClose}
-                className="btn-secondary"
-              >
-                Cancel
-              </button>
-              <button type="submit" className="btn-primary">
-                {serviceRequest ? 'Update' : 'Create'}
-              </button>
-            </div>
-          </form>
-        </Dialog.Panel>
+              <div className="flex items-center justify-end gap-3 border-t p-4 sm:p-6">
+                <button
+                  type="button"
+                  onClick={onClose}
+                  className="btn-secondary w-full sm:w-auto justify-center"
+                >
+                  Cancel
+                </button>
+                <button type="submit" className="btn-primary w-full sm:w-auto justify-center">
+                  {serviceRequest ? 'Update' : 'Create'}
+                </button>
+              </div>
+            </form>
+          </Dialog.Panel>
+        </div>
       </div>
     </Dialog>
   );

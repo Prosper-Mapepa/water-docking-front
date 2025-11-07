@@ -226,19 +226,19 @@ export default function Dashboard() {
               <div className="card p-8 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-primary-100/20 rounded-full blur-3xl"></div>
                 <div className="relative z-10">
-                  <div className="flex items-center justify-between mb-8">
+                  <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-8">
                     <div>
                       <h3 className="text-2xl font-bold text-gray-900 mb-1">Dock Occupancy</h3>
                       <p className="text-sm text-gray-500">Real-time dock utilization metrics</p>
                     </div>
-                    <div className="flex items-center space-x-2 px-4 py-2 bg-green-50 rounded-lg border border-green-200">
+                    <div className="inline-flex items-center space-x-2 px-4 py-2 bg-green-50 rounded-lg border border-green-200 self-start sm:self-auto">
                       <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                       <span className="text-sm font-semibold text-green-700">Live</span>
                     </div>
                   </div>
                   {occupancy && (
                     <div className="space-y-8">
-                      <div className="grid grid-cols-3 gap-6">
+                      <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-6">
                         <div className="bg-gradient-to-br from-gray-50 to-white p-5 rounded-xl border border-gray-100">
                           <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Total Docks</p>
                           <p className="text-4xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
@@ -260,7 +260,7 @@ export default function Dashboard() {
                         </div>
                       </div>
                       <div className="space-y-4">
-                        <div className="flex items-center justify-between">
+                        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                           <span className="text-sm font-semibold text-gray-700">Occupancy Progress</span>
                           <span className="text-sm font-bold text-primary-600">{occupancy.occupancyRate.toFixed(1)}%</span>
                         </div>
@@ -273,7 +273,7 @@ export default function Dashboard() {
                           </div>
                         </div>
                       </div>
-                      <div className="grid grid-cols-2 gap-4 pt-6 border-t border-gray-200">
+                      <div className="grid grid-cols-1 gap-4 pt-6 border-t border-gray-200 sm:grid-cols-2">
                         <div className="flex items-center space-x-3 p-3 bg-blue-50 rounded-lg">
                           <div className="w-4 h-4 bg-blue-500 rounded-full shadow-md"></div>
                           <div>
@@ -290,7 +290,7 @@ export default function Dashboard() {
                         </div>
                       </div>
                       {(occupancy.maintenanceDocks > 0 || occupancy.outOfServiceDocks > 0) && (
-                        <div className="grid grid-cols-2 gap-4 pt-4 border-t border-gray-200">
+                        <div className="grid grid-cols-1 gap-4 pt-4 border-t border-gray-200 sm:grid-cols-2">
                           {occupancy.maintenanceDocks > 0 && (
                             <div className="flex items-center space-x-3 p-3 bg-yellow-50 rounded-lg border border-yellow-100">
                               <div className="w-4 h-4 bg-yellow-500 rounded-full shadow-md"></div>

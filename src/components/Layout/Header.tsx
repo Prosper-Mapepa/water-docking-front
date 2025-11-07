@@ -1,15 +1,27 @@
 'use client';
 
-import { BellIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
+import { Bars3Icon, BellIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import { useAuth } from '@/contexts/AuthContext';
 
-export default function Header() {
+type HeaderProps = {
+  onOpenSidebar?: () => void;
+};
+
+export default function Header({ onOpenSidebar }: HeaderProps) {
   const { user } = useAuth();
 
   return (
     <header className="bg-white/80 backdrop-blur-md border-b border-gray-200/60 shadow-sm sticky top-0 z-40">
-      <div className="flex items-center justify-between h-16 px-6">
-        <div className="flex items-center">
+      <div className="flex items-center justify-between h-16 px-4 sm:px-6">
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={onOpenSidebar}
+            className="inline-flex items-center justify-center rounded-lg p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition md:hidden"
+            aria-label="Open menu"
+          >
+            <Bars3Icon className="h-6 w-6" />
+          </button>
           <h2 className="text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
             {/* Welcome back, <span className="text-primary-600">{user?.firstName}</span> */}
           </h2>
@@ -37,7 +49,7 @@ export default function Header() {
           </button>
 
           {/* User Profile */}
-          <div className="flex items-center space-x-3 pl-4 border-l border-gray-200">
+          <div className="flex items-center space-x-3 sm:pl-4 sm:border-l sm:border-gray-200">
             <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full flex items-center justify-center shadow-md ring-2 ring-white">
               <span className="text-sm font-bold text-white">
                 {user?.firstName?.[0]}{user?.lastName?.[0]}
